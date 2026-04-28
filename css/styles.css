@@ -148,8 +148,23 @@
 .two-row-small .portfolio-overlay {
     transition: opacity 0.3s ease;
 }
-.two-row-small:hover .portfolio-overlay {
+.two-row-small:hover .portfolio-overlay,
+.two-row-large:hover .portfolio-overlay {
     opacity: 1;
+}
+.two-row-large .portfolio-overlay {
+    justify-content: center;
+    align-items: center;
+}
+.two-row-large .play-button {
+    position: static;
+    transform: none;
+    width: clamp(44px, 6vw, 80px);
+    height: clamp(44px, 6vw, 80px);
+    font-size: clamp(1rem, 2.5vw, 2rem);
+}
+.two-row-large .play-button:hover {
+    transform: scale(1.1);
 }
 @media (max-width: 900px) {
     .two-row-small-row {
@@ -537,14 +552,60 @@
    ============================================ */
 
 .services.services-simple {
-    padding: 4rem 0 2rem 0;
+    padding: 4rem 0 4rem 0;
     background: var(--secondary-color);
 }
 
 .services-grid-4 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    gap: 3rem;
+}
+
+.services-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--accent-color);
+}
+
+.service-value {
+    padding: 0.5rem 0.5rem 0.5rem;
+    text-align: center;
+}
+
+.service-value-icon {
+    display: block;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-value-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--accent-color);
+    display: inline-block;
+}
+
+.service-value h3 {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+}
+
+.service-value p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .services-grid-3 {
+        grid-template-columns: 1fr;
+    }
 }
 
 .service-square {
@@ -680,6 +741,19 @@ body {
     font-weight: 300;
     letter-spacing: 3px;
     color: var(--accent-color);
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
+}
+
+.brand-sub {
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 .nav-menu {
@@ -931,6 +1005,12 @@ body {
     color: #fff;
     margin: 0;
 }
+.two-row-large .compact-bottom-info .portfolio-title {
+    font-size: clamp(0.8rem, 2vw, 1.3rem);
+}
+.two-row-large .compact-bottom-info .portfolio-date {
+    font-size: clamp(0.65rem, 1.4vw, 0.9rem);
+}
 .compact-bottom-info .portfolio-date {
     font-size: 0.65rem;
     opacity: 0.8;
@@ -1122,10 +1202,38 @@ body {
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 2rem;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-brand h3 {
+    color: var(--accent-color);
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
+}
+
+.footer-brand p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.footer-content .footer-links {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-section h3 {

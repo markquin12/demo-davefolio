@@ -93,6 +93,7 @@ document.querySelectorAll('.portfolio-item').forEach(item => {
 const videoUrls = {
     // Use a known embeddable Vimeo video for all items for testing
     'Michael & Jessica': 'https://play.gumlet.io/embed/69d7bd2ae2653946cb388377',
+    'Dominique & Sean': 'https://play.gumlet.io/embed/69d7bd2ae2653946cb388377',
     'Douglas & Nick': 'https://play.gumlet.io/embed/69d7acd779cd218090ffb26c',
     'Lauren & Johnny': 'https://play.gumlet.io/embed/69d7b39ae2653946cb3798be',
     'Alexandra & Jacob': 'https://play.gumlet.io/embed/69d7b68779cd21809000aa64',
@@ -145,13 +146,12 @@ function closeVideoModal() {
 document.querySelectorAll('.play-button').forEach(button => {
     button.addEventListener('click', (e) => {
         e.preventDefault();
-        
-        // Get the parent portfolio item
-        const portfolioItem = button.closest('.portfolio-item');
-        const title = portfolioItem.querySelector('.portfolio-title').textContent;
-        
-        // Open video modal
-        openVideoModal(title);
+
+        const container = button.closest('.portfolio-item, .portfolio-image');
+        const titleEl = container && container.querySelector('.portfolio-title');
+        if (titleEl) {
+            openVideoModal(titleEl.textContent.trim());
+        }
     });
 });
 
@@ -339,32 +339,6 @@ function classicTabGalleryExpand(imgs) {
     expandImg.src = imgs.src;
     imgText.innerHTML = imgs.alt;
     modal.style.display = "block";
-}
-
-// ============================================
-// TWO-ROW GALLERY PLAY BUTTON → VIDEO MODAL
-// ============================================
-document.querySelectorAll('.two-row-gallery .play-button').forEach(button => {
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-        const titleEl = button.closest('.portfolio-image').querySelector('.portfolio-title');
-        if (titleEl) {
-            openVideoModal(titleEl.textContent);
-        }
-    });
-});
-
-// ============================================
-// FEATURED VIDEO CONTAINER PLAY BUTTON
-// ============================================
-const featuredPlayBtn = document.getElementById('featuredPlayBtn');
-const featuredVideo = document.getElementById('featuredVideo');
-if (featuredPlayBtn && featuredVideo) {
-    featuredPlayBtn.addEventListener('click', function () {
-        const container = this.closest('.video-container');
-        featuredVideo.src = 'https://play.gumlet.io/embed/69d7514c79cd218090f67736';
-        container.classList.add('playing');
-    });
 }
 
 // ============================================
