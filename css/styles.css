@@ -170,13 +170,18 @@
     .two-row-small-row {
         grid-template-columns: repeat(2, 1fr);
     }
+    .two-row-large .portfolio-image {
+        aspect-ratio: 16 / 9;
+        border-radius: 16px;
+    }
 }
 @media (max-width: 480px) {
     .two-row-small-row {
         grid-template-columns: 1fr;
     }
     .two-row-large .portfolio-image {
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 16 / 9;
+        border-radius: 16px;
     }
 }
 
