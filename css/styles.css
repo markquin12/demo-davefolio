@@ -520,6 +520,15 @@
    ABOUT SECTION (TWO COLUMN)
    ============================================ */
 
+.about-img-bw {
+    filter: grayscale(100%);
+    transition: filter 0.4s ease;
+}
+
+.about-img-bw:hover {
+    filter: grayscale(0%);
+}
+
 .about-two-col {
     display: grid;
     grid-template-columns: 1fr 2fr;
