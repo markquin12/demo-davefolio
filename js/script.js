@@ -19,6 +19,106 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
 });
 
 // ============================================
+// PRICING TOGGLE
+// ============================================
+
+(function () {
+    const toggleBtn = document.getElementById('pricingToggle');
+    const body = document.getElementById('pricingBody');
+    if (!toggleBtn || !body) return;
+
+    const eyeOpen = `<polyline points="6 9 12 15 18 9"/>`;
+    const eyeClosed = `<polyline points="6 9 12 15 18 9"/>`;
+
+    toggleBtn.addEventListener('click', () => {
+        const isHidden = body.classList.toggle('hidden');
+        toggleBtn.setAttribute('aria-expanded', String(!isHidden));
+        toggleBtn.setAttribute('aria-label', isHidden ? 'Show pricing' : 'Hide pricing');
+        document.getElementById('pricingToggleText').textContent = isHidden ? 'View' : 'Hide';
+    });
+})();
+
+// ============================================
+// PRICING DURATION SLIDER
+// ============================================
+
+(function () {
+    // Teaser slider
+    const teaserPrices = ['$99', '$150', '$230'];
+    const teaserLabels = ['15 sec', '30 sec', '1 min'];
+    const teaserSlider = document.getElementById('teaserSlider');
+    const teaserPriceEl = document.getElementById('teaserPrice');
+    const teaserLabelEl = document.getElementById('teaserDurationLabel');
+
+    if (teaserSlider) {
+        function updateTeaserSlider() {
+            const val = parseInt(teaserSlider.value, 10);
+            teaserPriceEl.textContent = teaserPrices[val];
+            teaserLabelEl.textContent = teaserLabels[val];
+            const pct = (val / 2) * 100;
+            teaserSlider.style.background = `linear-gradient(to right, var(--accent-color) ${pct}%, var(--border-color) ${pct}%)`;
+        }
+        teaserSlider.addEventListener('input', updateTeaserSlider);
+        updateTeaserSlider();
+    }
+
+    // Highlight slider
+    const prices = { 3: '$249', 4: '$269', 5: '$299', 6: '$320' };
+    const slider = document.getElementById('durationSlider');
+    const priceEl = document.getElementById('highlightPrice');
+    const minutesEl = document.getElementById('sliderMinutes');
+
+    if (!slider) return;
+
+    function updateSlider() {
+        const val = parseInt(slider.value, 10);
+        priceEl.textContent = prices[val];
+        minutesEl.textContent = val;
+        // Fill track up to thumb position
+        const pct = ((val - 3) / 3) * 100;
+        slider.style.background = `linear-gradient(to right, var(--accent-color) ${pct}%, var(--border-color) ${pct}%)`;
+    }
+
+    slider.addEventListener('input', updateSlider);
+    updateSlider();
+    // Short Film slider
+    const shortFilmPrices = { 10: '$349', 11: '$359', 12: '$369', 13: '$379', 14: '$389', 15: '$399' };
+    const shortFilmSlider = document.getElementById('shortFilmSlider');
+    const shortFilmPriceEl = document.getElementById('shortFilmPrice');
+    const shortFilmMinutesEl = document.getElementById('shortFilmMinutes');
+
+    if (shortFilmSlider) {
+        function updateShortFilmSlider() {
+            const val = parseInt(shortFilmSlider.value, 10);
+            shortFilmPriceEl.textContent = shortFilmPrices[val];
+            shortFilmMinutesEl.textContent = val;
+            const pct = ((val - 10) / 5) * 100;
+            shortFilmSlider.style.background = `linear-gradient(to right, var(--accent-color) ${pct}%, var(--border-color) ${pct}%)`;
+        }
+        shortFilmSlider.addEventListener('input', updateShortFilmSlider);
+        updateShortFilmSlider();
+    }
+    // Full Edit slider
+    const fullEditPrices = ['$249', '$249', '$279', '$349'];
+    const fullEditLabels = ['Ceremony', 'Speeches', 'Reception', 'Full Documentary'];
+    const fullEditSlider = document.getElementById('fullEditSlider');
+    const fullEditPriceEl = document.getElementById('fullEditPrice');
+    const fullEditLabelEl = document.getElementById('fullEditLabel');
+
+    if (fullEditSlider) {
+        function updateFullEditSlider() {
+            const val = parseInt(fullEditSlider.value, 10);
+            fullEditPriceEl.textContent = fullEditPrices[val];
+            fullEditLabelEl.textContent = fullEditLabels[val];
+            const pct = (val / 3) * 100;
+            fullEditSlider.style.background = `linear-gradient(to right, var(--accent-color) ${pct}%, var(--border-color) ${pct}%)`;
+        }
+        fullEditSlider.addEventListener('input', updateFullEditSlider);
+        updateFullEditSlider();
+    }
+})();
+
+// ============================================
 // NOTIFICATION SYSTEM
 // ============================================
 

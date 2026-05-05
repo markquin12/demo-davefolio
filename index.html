@@ -178,6 +178,162 @@
             </div>
         </div>
     </section>
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="pricing-header">
+                <h2 class="section-title pricing-section-title">Pricing</h2>
+                <button class="pricing-toggle" id="pricingToggle" aria-label="Show pricing" aria-expanded="false">
+                    <svg class="pricing-toggle-icon" id="pricingToggleIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                    <span class="pricing-toggle-text" id="pricingToggleText">View</span>
+                </button>
+            </div>
+            <div class="pricing-body hidden" id="pricingBody">
+            <div class="pricing-row pricing-row--bundle">
+                <div class="pricing-row-left">
+                    <span class="pricing-row-label">All in Bundle</span>
+                    <ul class="pricing-features">
+                        <li>Teaser (up to 1 min)</li>
+                        <li>Highlight Film (up to 6 min)</li>
+                        <li>Short Film (up to 15 min)</li>
+                        <li>Full Edit (complete coverage)</li>
+                        <li>Advanced color grade throughout</li>
+                        <li>Unlimited revisions</li>
+                        <li>Priority delivery</li>
+                    </ul>
+                </div>
+                <div class="pricing-row-right">
+                    <span class="pricing-starts-at">starting at</span>
+                    <div class="pricing-display">
+                        <span class="pricing-amount">$1,199</span>
+                        <span class="pricing-per">/package</span>
+                    </div>
+                    <p class="pricing-bundle-note">Everything included — best value</p>
+                </div>
+            </div>
+            <div class="pricing-row">
+                <div class="pricing-row-left">
+                    <span class="pricing-row-label">Teaser</span>
+                    <ul class="pricing-features">
+                        <li>Fast-paced social edit</li>
+                        <li>Cinematic color grade</li>
+                        <li>Music sync</li>
+                        <li>2 revisions included</li>
+                        <li>3–5 day delivery</li>
+                    </ul>
+                </div>
+                <div class="pricing-row-right">
+                    <span class="pricing-starts-at">starting at</span>
+                    <div class="pricing-display">
+                        <span class="pricing-amount" id="teaserPrice">$120</span>
+                        <span class="pricing-per">/video</span>
+                    </div>
+                    <div class="pricing-slider-wrap">
+                        <div class="pricing-slider-header">
+                            <span class="pricing-slider-label">Duration</span>
+                            <span class="pricing-slider-value" id="teaserDurationLabel">15 sec</span>
+                        </div>
+                        <input type="range" id="teaserSlider" class="pricing-slider" min="0" max="2" step="1" value="0" aria-label="Teaser duration">
+                        <div class="pricing-slider-ticks">
+                            <span>15s</span><span>30s</span><span>1 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-row">
+                <div class="pricing-row-left">
+                    <span class="pricing-row-label">Highlight</span>
+                    <ul class="pricing-features">
+                        <li>Cinematic color grade</li>
+                        <li>Multi-camera sync</li>
+                        <li>Titles &amp; graphics</li>
+                        <li>3 revisions included</li>
+                        <li>7–10 day delivery</li>
+                    </ul>
+                </div>
+                <div class="pricing-row-right">
+                    <span class="pricing-starts-at">starting at</span>
+                    <div class="pricing-display">
+                        <span class="pricing-amount" id="highlightPrice">$350</span>
+                        <span class="pricing-per">/video</span>
+                    </div>
+                    <div class="pricing-slider-wrap">
+                        <div class="pricing-slider-header">
+                            <span class="pricing-slider-label">Duration</span>
+                            <span class="pricing-slider-value"><span id="sliderMinutes">3</span> min</span>
+                        </div>
+                        <input type="range" id="durationSlider" class="pricing-slider" min="3" max="6" step="1" value="3" aria-label="Highlight film duration in minutes">
+                        <div class="pricing-slider-ticks">
+                            <span>3</span><span>4</span><span>5</span><span>6</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-row">
+                <div class="pricing-row-left">
+                    <span class="pricing-row-label">Short Film</span>
+                    <ul class="pricing-features">
+                        <li>Full storytelling narrative</li>
+                        <li>Ceremony &amp; reception coverage</li>
+                        <li>Advanced color grade</li>
+                        <li>Custom titles &amp; chapters</li>
+                        <li>Unlimited revisions</li>
+                        <li>14 day delivery</li>
+                    </ul>
+                </div>
+                <div class="pricing-row-right">
+                    <span class="pricing-starts-at">starting at</span>
+                    <div class="pricing-display">
+                        <span class="pricing-amount" id="shortFilmPrice">$900</span>
+                        <span class="pricing-per">/video</span>
+                    </div>
+                    <div class="pricing-slider-wrap">
+                        <div class="pricing-slider-header">
+                            <span class="pricing-slider-label">Duration</span>
+                            <span class="pricing-slider-value"><span id="shortFilmMinutes">10</span> min</span>
+                        </div>
+                        <input type="range" id="shortFilmSlider" class="pricing-slider" min="10" max="15" step="1" value="10" aria-label="Short film duration in minutes">
+                        <div class="pricing-slider-ticks">
+                            <span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-row">
+                <div class="pricing-row-left">
+                    <span class="pricing-row-label">Full Edit</span>
+                    <ul class="pricing-features">
+                        <li>Complete documentary-style coverage</li>
+                        <li>Multi-camera sync</li>
+                        <li>Advanced color grade</li>
+                        <li>Custom titles &amp; chapters</li>
+                        <li>Unlimited revisions</li>
+                        <li>Priority delivery</li>
+                    </ul>
+                </div>
+                <div class="pricing-row-right">
+                    <span class="pricing-starts-at">starting at</span>
+                    <div class="pricing-display">
+                        <span class="pricing-amount" id="fullEditPrice">$600</span>
+                        <span class="pricing-per">/video</span>
+                    </div>
+                    <div class="pricing-slider-wrap">
+                        <div class="pricing-slider-header">
+                            <span class="pricing-slider-label">Coverage</span>
+                            <span class="pricing-slider-value" id="fullEditLabel">Ceremony</span>
+                        </div>
+                        <input type="range" id="fullEditSlider" class="pricing-slider" min="0" max="3" step="1" value="0" aria-label="Full edit coverage scope">
+                        <div class="pricing-slider-ticks pricing-slider-ticks--bullets">
+                            <span>&bull;</span><span>&bull;</span><span>&bull;</span><span>&bull;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div><!-- /.pricing-body -->
+        </div>
+    </section>
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
